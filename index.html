@@ -7,7 +7,19 @@
 <title>Khadijah & Arif Billah</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --cream: #fffaf7;
+    --ivory: #fdf3ef;
+    --pink: #c96b7b;
+    --pink-dark: #a94f61;
+    --pink-soft: #f4d9d8;
+    --rose: #d99aa0;
+    --gold: #b9916a;
+    --text: #403337;
+    --muted: #806f73;
+}
 
 * {
     margin: 0;
@@ -20,316 +32,688 @@ html {
 }
 
 body {
-    background: #f7f3eb;
-    color: #2c2924;
-    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
     font-weight: 300;
+    overflow-x: hidden;
 }
 
 section {
-    padding: 80px 25px;
-    text-align: center;
+    position: relative;
+    padding: 85px 22px;
+    overflow: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
 }
 
 h2 {
     font-size: 43px;
-    margin-bottom: 20px;
+    color: var(--pink-dark);
+    margin-bottom: 12px;
 }
 
 p {
     line-height: 1.9;
 }
 
-.gold {
-    color: #a78950;
+.small-title {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 12px;
 }
 
 .ornament {
-    color: #a78950;
-    font-size: 25px;
-    margin-bottom: 20px;
+    color: var(--rose);
+    font-size: 22px;
+    letter-spacing: 8px;
+    margin-bottom: 22px;
+}
+
+.ornament::before,
+.ornament::after {
+    content: "—";
+    margin: 0 10px;
+    color: var(--rose);
+}
+
+/* DECORATIVE FLOWERS */
+
+.flower {
+    position: absolute;
+    color: rgba(201,107,123,.22);
+    font-size: 80px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.flower.one {
+    top: 20px;
+    left: -15px;
+    transform: rotate(-20deg);
+}
+
+.flower.two {
+    bottom: 10px;
+    right: -15px;
+    transform: rotate(25deg);
+}
+
+.flower.three {
+    top: 35px;
+    right: -20px;
+    font-size: 65px;
+    transform: rotate(30deg);
+}
+
+.flower.four {
+    bottom: 15px;
+    left: -15px;
+    font-size: 65px;
+    transform: rotate(-30deg);
 }
 
 /* COVER */
 
 .cover {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    text-align: center;
 
     background:
-        linear-gradient(
-            rgba(30,25,20,.42),
-            rgba(30,25,20,.42)
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(236,166,174,.45),
+            transparent 28%
         ),
-        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=85")
-        center/cover;
-
-    color: white;
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(214,143,151,.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaf8,
+            #f8e5e1 50%,
+            #fffaf7
+        );
 }
 
-.cover-content {
-    padding: 30px;
-    animation: fadeUp 1.5s ease;
+.cover::before {
+    content: "✿";
+    position: absolute;
+    top: 25px;
+    left: -5px;
+    font-size: 120px;
+    color: rgba(201,107,123,.17);
+    transform: rotate(-25deg);
 }
 
-.subtitle {
+.cover::after {
+    content: "✿";
+    position: absolute;
+    bottom: 15px;
+    right: -5px;
+    font-size: 120px;
+    color: rgba(201,107,123,.17);
+    transform: rotate(25deg);
+}
+
+.cover-inner {
+    width: min(92%, 520px);
+    padding: 45px 25px;
+    border: 1px solid rgba(185,145,106,.4);
+    background: rgba(255,255,255,.35);
+    backdrop-filter: blur(5px);
+    position: relative;
+}
+
+.cover-inner::before,
+.cover-inner::after {
+    content: "✦";
+    position: absolute;
+    color: var(--gold);
+    font-size: 18px;
+}
+
+.cover-inner::before {
+    top: 13px;
+    left: 18px;
+}
+
+.cover-inner::after {
+    bottom: 13px;
+    right: 18px;
+}
+
+.cover-title {
     font-size: 11px;
     letter-spacing: 5px;
-    margin-bottom: 25px;
+    color: var(--pink-dark);
+    margin-bottom: 28px;
 }
 
 .names {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 70px;
-    line-height: .9;
+    font-size: clamp(54px, 15vw, 82px);
+    line-height: .82;
+    color: var(--pink-dark);
+}
+
+.names .amp {
+    font-family: 'Allura', cursive;
+    font-size: .72em;
+    color: var(--gold);
+    display: block;
+    margin: 12px 0;
 }
 
 .cover-date {
-    margin-top: 30px;
-    font-size: 13px;
-    letter-spacing: 4px;
+    margin-top: 35px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
 }
 
 .open-btn {
     display: inline-block;
-    margin-top: 45px;
-    padding: 15px 32px;
-    border: 1px solid rgba(255,255,255,.8);
+    margin-top: 40px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    background: var(--pink);
     color: white;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 2px;
     transition: .3s;
+    box-shadow: 0 8px 20px rgba(169,79,97,.18);
 }
 
 .open-btn:hover {
-    background: white;
-    color: #29251f;
+    background: var(--pink-dark);
+    transform: translateY(-2px);
 }
 
-/* INTRO */
+/* OPENING */
 
-.intro {
-    max-width: 750px;
+.opening {
+    text-align: center;
+    background: var(--ivory);
+}
+
+.opening-inner {
+    max-width: 650px;
     margin: auto;
+}
+
+.arabic {
+    font-size: 28px;
+    color: var(--pink-dark);
+    margin-bottom: 25px;
 }
 
 .quote {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 23px;
+    font-size: 22px;
     font-style: italic;
-    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #654f54;
+}
+
+.source {
+    margin-top: 14px;
+    color: var(--pink);
+    font-size: 11px;
+}
+
+.opening-text {
+    margin-top: 35px;
+    color: var(--muted);
 }
 
 /* COUPLE */
 
 .couple {
-    background: #eee8dc;
+    background: var(--cream);
+    text-align: center;
 }
 
-.couple-container {
-    max-width: 800px;
+.couple-inner {
+    max-width: 850px;
     margin: auto;
 }
 
+.couple-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
 .person {
-    margin: 35px 0;
+    text-align: center;
+}
+
+.photo-placeholder {
+    width: 100%;
+    max-width: 220px;
+    height: 290px;
+    margin: auto;
+    border-radius: 110px 110px 15px 15px;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(80,40,45,.12);
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #f1c9c8 0 18%,
+            transparent 18.5%
+        ),
+        linear-gradient(
+            145deg,
+            #f8e1df,
+            #ecc4c5
+        );
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 18px;
+    color: #aa7c81;
+    font-size: 11px;
+    letter-spacing: 2px;
 }
 
 .person-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    margin-bottom: 10px;
+    font-size: 34px;
+    color: var(--pink-dark);
+    margin-top: 20px;
 }
 
-.and {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 40px;
-    color: #a78950;
+.parents {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.amp-large {
+    font-family: 'Allura', cursive;
+    font-size: 70px;
+    color: var(--gold);
 }
 
 /* COUNTDOWN */
 
+.countdown-section {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255,240,237,.9),
+            rgba(255,240,237,.9)
+        ),
+        radial-gradient(
+            circle at center,
+            #e8b8bd,
+            transparent 65%
+        );
+}
+
 .countdown {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    gap: 10px;
     margin-top: 35px;
+    flex-wrap: wrap;
 }
 
-.time {
-    width: 75px;
+.time-box {
+    width: 76px;
+    height: 82px;
+    border: 1px solid rgba(201,107,123,.35);
+    background: rgba(255,255,255,.65);
+    border-radius: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .number {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 40px;
+    font-size: 31px;
+    color: var(--pink-dark);
 }
 
 .label {
-    font-size: 9px;
-    letter-spacing: 2px;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
 }
 
-/* EVENT */
+/* EVENTS */
 
 .events {
-    max-width: 900px;
+    background: var(--ivory);
+    text-align: center;
+}
+
+.events-inner {
+    max-width: 850px;
     margin: auto;
 }
 
 .event-card {
-    max-width: 520px;
-    margin: 30px auto;
-    padding: 40px 25px;
-    border: 1px solid #d4c5aa;
-    background: rgba(255,255,255,.25);
+    position: relative;
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 32px 25px;
+
+    background: rgba(255,255,255,.72);
+    border: 1px solid #efd5d1;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(90,50,55,.06);
+    text-align: left;
+}
+
+.event-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--pink-soft);
+    color: var(--pink-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    margin-bottom: 18px;
 }
 
 .event-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    margin-bottom: 18px;
+    color: var(--pink-dark);
+    font-size: 31px;
 }
 
 .event-date {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 23px;
-    margin-bottom: 20px;
+    margin-top: 7px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
 }
 
-.map-btn,
-.rsvp-btn {
+.event-info {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.map-btn {
     display: inline-block;
-    margin-top: 25px;
-    padding: 14px 28px;
-    background: #29251f;
+    margin-top: 20px;
+    padding: 11px 20px;
+
+    border-radius: 25px;
+    background: var(--pink);
     color: white;
+
     text-decoration: none;
-    font-size: 10px;
-    letter-spacing: 2px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
 }
 
 /* GALLERY */
 
 .gallery {
-    background: #eee8dc;
+    background: var(--cream);
+    text-align: center;
+}
+
+.gallery-inner {
+    max-width: 800px;
+    margin: auto;
 }
 
 .gallery-grid {
-    max-width: 850px;
-    margin: 35px auto 0;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+    margin-top: 35px;
 }
 
-.gallery-grid div {
-    height: 260px;
+.gallery-item {
+    min-height: 190px;
+    border-radius: 12px;
+
     background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(201,107,123,.25),
+            transparent 30%
+        ),
         linear-gradient(
-            135deg,
-            #ded5c5,
-            #f5f0e8
+            145deg,
+            #f7e2df,
+            #efd0cf
         );
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #817865;
+
+    color: #a97a80;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
 }
 
 /* RSVP */
 
 .rsvp {
-    max-width: 700px;
-    margin: auto;
+    text-align: center;
+    background: var(--ivory);
 }
 
-.rsvp-btn {
-    margin-top: 30px;
+.rsvp-box {
+    max-width: 600px;
+    margin: 30px auto 0;
+    padding: 40px 25px;
+
+    border: 1px solid #edd0cd;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.65);
+}
+
+.rsvp-box p {
+    color: var(--muted);
+}
+
+.coming-soon {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+
+    border-radius: 25px;
+    background: var(--pink-soft);
+    color: var(--pink-dark);
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* CLOSING */
+
+.closing {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #f5d5d3,
+            transparent 55%
+        ),
+        var(--ivory);
+
+    padding-bottom: 100px;
+}
+
+.closing-text {
+    max-width: 600px;
+    margin: auto;
+    color: var(--muted);
+}
+
+.closing-names {
+    font-family: 'Allura', cursive;
+    font-size: 65px;
+    color: var(--pink-dark);
+    margin-top: 35px;
+}
+
+.closing-date {
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #4d353b;
+    color: #f9e8e5;
+    font-size: 10px;
+    letter-spacing: 1px;
 }
 
 /* MUSIC */
 
 .music-btn {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
+    right: 18px;
+    bottom: 18px;
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
     border-radius: 50%;
-    border: 1px solid #c8b58f;
-    background: #29251f;
+
+    background: var(--pink-dark);
     color: white;
-    font-size: 19px;
+
+    font-size: 20px;
+
+    box-shadow: 0 8px 25px rgba(100,40,50,.25);
+
     z-index: 999;
     cursor: pointer;
 }
 
-/* FOOTER */
-
-footer {
-    padding: 70px 20px;
-    background: #29251f;
-    color: white;
-    text-align: center;
+.music-btn.playing {
+    animation: rotateMusic 3s linear infinite;
 }
 
-.footer-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 43px;
-    margin-bottom: 15px;
+@keyframes rotateMusic {
+
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
 }
 
 /* ANIMATION */
 
-@keyframes fadeUp {
+.fade {
+    opacity: 0;
+    transform: translateY(25px);
 
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* MOBILE */
 
-@media(max-width:600px) {
+@media(max-width: 650px) {
 
     section {
-        padding: 70px 20px;
+        padding: 75px 18px;
     }
 
-    .names {
+    .cover-inner {
+        padding: 40px 18px;
+    }
+
+    .couple-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .amp-large {
         font-size: 55px;
+        margin: -5px 0;
     }
 
-    h2 {
-        font-size: 37px;
+    .photo-placeholder {
+        height: 310px;
+        max-width: 230px;
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
-    .gallery-grid div {
-        height: 300px;
+    .gallery-item {
+        min-height: 160px;
+    }
+
+    .gallery-item.tall {
+        grid-row: span 1;
+    }
+}
+
+@media(max-width: 380px) {
+
+    .time-box {
+        width: 68px;
+        height: 75px;
+    }
+
+    .number {
+        font-size: 28px;
     }
 
 }
@@ -338,28 +722,41 @@ footer {
 
 <body>
 
-<!-- COVER -->
+
+<!-- =========================
+     COVER
+========================= -->
 
 <section class="cover">
 
-    <div class="cover-content">
+    <div class="cover-inner">
 
-        <div class="subtitle">
+        <div class="cover-title">
             THE WEDDING OF
         </div>
 
         <div class="names">
-            Khadijah<br>
-            <span class="gold">&</span><br>
-            Arif Billah
+
+            KHADIJAH
+
+            <span class="amp">
+                &
+            </span>
+
+            ARIF BILLAH
+
         </div>
 
         <div class="cover-date">
-            20 & 22 NOVEMBER 2026
+            20 &amp; 22 NOVEMBER 2026
         </div>
 
-        <a href="#opening" class="open-btn">
+        <a
+            href="#opening"
+            class="open-btn">
+
             BUKA UNDANGAN
+
         </a>
 
     </div>
@@ -367,68 +764,165 @@ footer {
 </section>
 
 
-<!-- OPENING -->
+<!-- =========================
+     OPENING
+========================= -->
 
-<section id="opening" class="intro">
+<section
+    class="opening"
+    id="opening">
 
-    <div class="ornament">✦</div>
-
-    <div class="quote">
-        "Dan di antara tanda-tanda kekuasaan-Nya
-        ialah Dia menciptakan untukmu pasangan
-        dari jenismu sendiri..."
+    <div class="flower one">
+        ✿
     </div>
 
-    <p>
-        Dengan memohon rahmat dan ridho Allah SWT,
-        kami bermaksud mengundang Bapak/Ibu/Saudara/i
-        untuk hadir dalam acara pernikahan kami.
-    </p>
+    <div class="flower two">
+        ✿
+    </div>
+
+    <div class="opening-inner fade">
+
+        <div class="small-title">
+            Assalamu'alaikum Warahmatullahi Wabarakatuh
+        </div>
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <div class="arabic">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
+
+        <div class="quote">
+            "Dan di antara tanda-tanda kekuasaan-Nya
+            ialah Dia menciptakan untukmu pasangan
+            dari jenismu sendiri, agar kamu merasa
+            tenteram kepadanya."
+        </div>
+
+        <div class="source">
+            QS. Ar-Rum : 21
+        </div>
+
+        <p class="opening-text">
+
+            Dengan memohon rahmat dan ridho Allah SWT,
+            kami bermaksud mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dan memberikan doa restu
+            pada pernikahan kami.
+
+        </p>
+
+    </div>
 
 </section>
 
 
-<!-- COUPLE -->
+<!-- =========================
+     COUPLE
+========================= -->
 
 <section class="couple">
 
-    <div class="couple-container">
+    <div class="flower three">
+        ✿
+    </div>
 
-        <div class="ornament">✦</div>
+    <div class="flower four">
+        ✿
+    </div>
 
-        <h2>The Bride & Groom</h2>
+    <div class="couple-inner fade">
 
-        <div class="person">
-
-            <div class="person-name">
-                Khadijah
-            </div>
-
-            <p>
-                Putri dari<br>
-                <strong>Hj. Basyahiril</strong>
-                <br>&
-                <br>
-                <strong>Jubaidah</strong>
-            </p>
-
+        <div class="small-title">
+            The Couple
         </div>
 
-        <div class="and">&</div>
+        <h2>
+            Mempelai
+        </h2>
 
-        <div class="person">
+        <div class="ornament">
+            ✦
+        </div>
 
-            <div class="person-name">
-                Arif Billah
+        <div class="couple-grid">
+
+
+            <!-- KHADIJAH -->
+
+            <div class="person">
+
+                <div class="photo-placeholder">
+                    FOTO KHADIJAH
+                </div>
+
+                <div class="person-name">
+                    Khadijah
+                </div>
+
+                <div class="parents">
+
+                    Putri dari<br>
+
+                    <strong>
+                        Hj. Basyahiril
+                    </strong>
+
+                    <br>
+
+                    &amp;
+
+                    <br>
+
+                    <strong>
+                        Jubaidah
+                    </strong>
+
+                </div>
+
             </div>
 
-            <p>
-                Putra dari<br>
-                <strong>Helyami</strong>
-                <br>&
-                <br>
-                <strong>Maslian</strong>
-            </p>
+
+            <div class="amp-large">
+                &
+            </div>
+
+
+            <!-- ARIF -->
+
+            <div class="person">
+
+                <div class="photo-placeholder">
+                    FOTO ARIF
+                </div>
+
+                <div class="person-name">
+                    Arif Billah
+                </div>
+
+                <div class="parents">
+
+                    Putra dari<br>
+
+                    <strong>
+                        Helyami
+                    </strong>
+
+                    <br>
+
+                    &amp;
+
+                    <br>
+
+                    <strong>
+                        Maslian
+                    </strong>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -437,38 +931,87 @@ footer {
 </section>
 
 
-<!-- COUNTDOWN -->
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
-<section>
+<section class="countdown-section">
 
-    <div class="ornament">✦</div>
+    <div class="fade">
 
-    <h2>Counting The Days</h2>
-
-    <p>
-        Menuju hari bahagia kami
-    </p>
-
-    <div class="countdown">
-
-        <div class="time">
-            <div class="number" id="days">0</div>
-            <div class="label">HARI</div>
+        <div class="small-title">
+            Save The Date
         </div>
 
-        <div class="time">
-            <div class="number" id="hours">0</div>
-            <div class="label">JAM</div>
+        <h2>
+            Menuju Hari Bahagia
+        </h2>
+
+        <div class="ornament">
+            ✦
         </div>
 
-        <div class="time">
-            <div class="number" id="minutes">0</div>
-            <div class="label">MENIT</div>
-        </div>
+        <div class="countdown">
 
-        <div class="time">
-            <div class="number" id="seconds">0</div>
-            <div class="label">DETIK</div>
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="days">
+                    0
+                </div>
+
+                <div class="label">
+                    HARI
+                </div>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="hours">
+                    0
+                </div>
+
+                <div class="label">
+                    JAM
+                </div>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="minutes">
+                    0
+                </div>
+
+                <div class="label">
+                    MENIT
+                </div>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <div
+                    class="number"
+                    id="seconds">
+                    0
+                </div>
+
+                <div class="label">
+                    DETIK
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -476,46 +1019,74 @@ footer {
 </section>
 
 
-<!-- EVENTS -->
+<!-- =========================
+     EVENTS
+========================= -->
 
-<section class="couple">
+<section class="events">
 
-    <div class="events">
+    <div class="flower one">
+        ✿
+    </div>
 
-        <div class="ornament">✦</div>
+    <div class="flower two">
+        ✿
+    </div>
 
-        <h2>Wedding Events</h2>
+    <div class="events-inner fade">
+
+        <div class="small-title">
+            Wedding Events
+        </div>
+
+        <h2>
+            Rangkaian Acara
+        </h2>
+
+        <div class="ornament">
+            ✦
+        </div>
 
 
         <!-- AKAD -->
 
         <div class="event-card">
 
+            <div class="event-icon">
+                ♡
+            </div>
+
             <div class="event-title">
                 Akad Nikah
             </div>
 
             <div class="event-date">
+
                 Jumat, 20 November 2026
+
+                <br>
+
+                09.00 WITA
+
             </div>
 
-            <p>
-                Pukul <strong>09.00 WITA</strong>
-            </p>
+            <div class="event-info">
 
-            <br>
+                📍 Rumah Mempelai
 
-            <p>
-                Rumah Mempelai
                 <br>
+
                 Jl. Gerilya Gg. Bambu
-            </p>
+
+            </div>
 
             <a
                 class="map-btn"
-                href="https://www.google.com/maps/search/?api=1&query=Jl.+Gerilya+Gg.+Bambu"
+                href="https://maps.app.goo.gl/tJVbrEZ8jpSNuC1D9?g_st=ac"
                 target="_blank">
-                LIHAT LOKASI
+
+                📍 LIHAT LOKASI
+
             </a>
 
         </div>
@@ -525,25 +1096,37 @@ footer {
 
         <div class="event-card">
 
+            <div class="event-icon">
+                ♡
+            </div>
+
             <div class="event-title">
                 Resepsi
             </div>
 
             <div class="event-date">
+
                 Minggu, 22 November 2026
+
             </div>
 
-            <p>
-                Jl. Gerilya Gg. Bambu
+            <div class="event-info">
+
+                📍 Jl. Gerilya Gg. Bambu
+
                 <br>
+
                 Dekat Pondok Pesantren Nurul Jannah
-            </p>
+
+            </div>
 
             <a
                 class="map-btn"
-                href="https://www.google.com/maps/search/?api=1&query=Jl.+Gerilya+Gg.+Bambu+Pondok+Pesantren+Nurul+Jannah"
+                href="https://maps.app.goo.gl/tJVbrEZ8jpSNuC1D9"
                 target="_blank">
-                LIHAT LOKASI
+
+                📍 LIHAT LOKASI
+
             </a>
 
         </div>
@@ -553,84 +1136,175 @@ footer {
 </section>
 
 
-<!-- GALLERY -->
+<!-- =========================
+     GALLERY
+========================= -->
 
 <section class="gallery">
 
-    <div class="ornament">✦</div>
+    <div class="gallery-inner fade">
 
-    <h2>Our Moments</h2>
+        <div class="small-title">
+            Our Moments
+        </div>
 
-    <p>
-        Gallery akan kami lengkapi dengan
-        foto-foto terbaik kami.
-    </p>
+        <h2>
+            Galeri Kami
+        </h2>
 
-    <div class="gallery-grid">
+        <div class="ornament">
+            ✦
+        </div>
 
-        <div>Our Photo</div>
-        <div>Our Photo</div>
-        <div>Our Photo</div>
-        <div>Our Photo</div>
+        <p>
+
+            Beberapa momen indah perjalanan
+            kami menuju hari istimewa ini.
+
+        </p>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item tall">
+                FOTO 01
+            </div>
+
+            <div class="gallery-item">
+                FOTO 02
+            </div>
+
+            <div class="gallery-item">
+                FOTO 03
+            </div>
+
+            <div class="gallery-item">
+                FOTO 04
+            </div>
+
+            <div class="gallery-item tall">
+                FOTO 05
+            </div>
+
+            <div class="gallery-item">
+                FOTO 06
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- RSVP -->
+<!-- =========================
+     RSVP
+========================= -->
 
 <section class="rsvp">
 
-    <div class="ornament">✦</div>
+    <div class="fade">
 
-    <h2>RSVP</h2>
+        <div class="small-title">
+            Konfirmasi Kehadiran
+        </div>
 
-    <p>
-        Merupakan suatu kebahagiaan bagi kami
-        apabila Bapak/Ibu/Saudara/i dapat hadir
-        dan memberikan doa restu.
-    </p>
+        <h2>
+            RSVP
+        </h2>
 
-    <a
-        class="rsvp-btn"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdLzdYJdAcmA8hILwzMNFo1ANZxjoae2a4cpQ-YCOhdpOHn9Q/viewform?usp=publish-editor"
-        target="_blank">
+        <div class="ornament">
+            ✦
+        </div>
 
-        KONFIRMASI KEHADIRAN
+        <div class="rsvp-box">
 
-    </a>
+            <p>
+
+                Merupakan suatu kebahagiaan bagi kami
+                apabila Bapak/Ibu/Saudara/i dapat hadir
+                dan memberikan doa restu.
+
+            </p>
+
+            <div class="coming-soon">
+
+                KONFIRMASI KEHADIRAN
+                SEGERA HADIR
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     CLOSING
+========================= -->
+
+<section class="closing">
+
+    <div class="flower one">
+        ✿
+    </div>
+
+    <div class="flower two">
+        ✿
+    </div>
+
+    <div class="fade">
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <p class="closing-text">
+
+            Merupakan suatu kebahagiaan bagi kami
+            apabila Bapak/Ibu/Saudara/i berkenan
+            hadir dan memberikan doa restu
+            kepada kami.
+
+        </p>
+
+        <div class="closing-names">
+
+            Khadijah &amp; Arif Billah
+
+        </div>
+
+        <div class="closing-date">
+
+            20 &amp; 22 NOVEMBER 2026
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <footer>
 
-    <div class="footer-name">
-        Khadijah & Arif Billah
-    </div>
-
-    <p>
-        20 & 22 November 2026
-    </p>
-
-    <br>
-
-    <p>
-        Terima kasih atas doa dan restu
-        yang diberikan kepada kami.
-    </p>
+    Khadijah &amp; Arif Billah · 2026
 
 </footer>
 
 
 <!-- MUSIC -->
 
-<audio id="weddingMusic" loop>
-    <source src="wedding-music.mp3" type="audio/mpeg">
+<audio
+    id="weddingMusic"
+    loop>
+
+    <source
+        src="wedding-music.mp3"
+        type="audio/mpeg">
+
 </audio>
+
 
 <button
     class="music-btn"
@@ -644,10 +1318,15 @@ footer {
 
 <script>
 
-/* COUNTDOWN */
+/* =========================
+   COUNTDOWN
+========================= */
 
 const weddingDate =
-    new Date("November 20, 2026 09:00:00").getTime();
+    new Date(
+        "November 20, 2026 09:00:00 GMT+0800"
+    ).getTime();
+
 
 function updateCountdown() {
 
@@ -657,75 +1336,189 @@ function updateCountdown() {
     const distance =
         weddingDate - now;
 
+
     if (distance <= 0) {
 
-        document.getElementById("days").innerText = "0";
-        document.getElementById("hours").innerText = "0";
-        document.getElementById("minutes").innerText = "0";
-        document.getElementById("seconds").innerText = "0";
+        document.getElementById(
+            "days"
+        ).innerText = "0";
+
+        document.getElementById(
+            "hours"
+        ).innerText = "0";
+
+        document.getElementById(
+            "minutes"
+        ).innerText = "0";
+
+        document.getElementById(
+            "seconds"
+        ).innerText = "0";
 
         return;
     }
 
+
     const days =
         Math.floor(
-            distance / (1000 * 60 * 60 * 24)
+            distance /
+            (1000 * 60 * 60 * 24)
         );
+
 
     const hours =
         Math.floor(
-            (distance % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
         );
+
 
     const minutes =
         Math.floor(
-            (distance % (1000 * 60 * 60))
-            / (1000 * 60)
+            (
+                distance %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
         );
+
 
     const seconds =
         Math.floor(
-            (distance % (1000 * 60))
-            / 1000
+            (
+                distance %
+                (1000 * 60)
+            ) /
+            1000
         );
 
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
+
+    document.getElementById(
+        "days"
+    ).innerText = days;
+
+    document.getElementById(
+        "hours"
+    ).innerText = hours;
+
+    document.getElementById(
+        "minutes"
+    ).innerText = minutes;
+
+    document.getElementById(
+        "seconds"
+    ).innerText = seconds;
+
 }
+
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
-/* MUSIC */
+/* =========================
+   MUSIC
+========================= */
 
 const music =
-    document.getElementById("weddingMusic");
+    document.getElementById(
+        "weddingMusic"
+    );
+
 
 const musicButton =
-    document.getElementById("musicButton");
+    document.getElementById(
+        "musicButton"
+    );
+
 
 function toggleMusic() {
 
     if (music.paused) {
 
-        music.play();
+        music.play()
+            .then(() => {
 
-        musicButton.innerHTML = "❚❚";
+                musicButton.innerHTML =
+                    "❚❚";
+
+                musicButton.classList.add(
+                    "playing"
+                );
+
+            })
+            .catch(() => {
+
+                alert(
+                    "Silakan tekan tombol musik sekali lagi."
+                );
+
+            });
 
     } else {
 
         music.pause();
 
-        musicButton.innerHTML = "♪";
+        musicButton.innerHTML =
+            "♪";
+
+        musicButton.classList.remove(
+            "playing"
+        );
 
     }
 
 }
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+const fadeElements =
+    document.querySelectorAll(
+        ".fade"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .15
+        }
+    );
+
+
+fadeElements.forEach(
+    element =>
+        observer.observe(element)
+);
 
 </script>
 
